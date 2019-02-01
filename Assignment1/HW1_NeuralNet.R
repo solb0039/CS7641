@@ -7,7 +7,8 @@ library(nnet)
 library(NeuralNetTools)
 
 # Read, process and split dataset
-df<-read_excel("~/Downloads/default of credit card clients.xls")
+setwd("~/School/GeorgiaTech/CS7641/Assignment1/")
+df<-read_excel("./default of credit card clients.xls")
 colnames(df)[ncol(df)]<-"default"
 df$default<-as.factor(df$default)
 xnam<-paste(colnames(df)[2:(ncol(df)-1)], sep="") 
@@ -56,7 +57,7 @@ garson(nnet_model)
 
 
 # Census dataset analysis #
-income<-read.table("~/Downloads/adult.data.txt", header=F, sep=",")
+income<-read.table("./adult.data.txt", header=F, sep=",")
 income_names<-c("age","workclass","fnlwgt","education","education_num","marital", "occupation",
                 "relationship","race","sex","capitalgain","capitalloss","hoursperweek",
                 "country","income")
