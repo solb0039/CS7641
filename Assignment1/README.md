@@ -2,14 +2,16 @@
 
 1. Decision Trees
 
-```R Code:
+```R
 code example here
+var s = insert
+read.data(dfd)
 ```
 
-|Table | stuff | Here |
-|------|-------|------|
-|33    |  43   |  4   |
-|---------------------|
+|Table|stuff|Here|
+|-----|-----|----|
+|33   |  43 |  4 |
+
 
 > Blockquotes
 

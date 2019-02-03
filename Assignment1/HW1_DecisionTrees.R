@@ -24,11 +24,13 @@ test_data  <- df[-sample, ]
 # 10x cross-validation on entire tree
 model<-rpart(fmla, data=train_data, method="class", control=rpart.control(cp = 0.000), xval=10) 
 plotcp(model)
+
 # Find optimal tree
 min_error<-which.min(model$cptable[,4])
 min_cp<-model$cptable[min_error,1]
 min_tree<-model$cptable[min_error,2]
 abline(v=min_tree)
+
 # Prune tree to optimal cp
 model_prune<-prune.rpart(model, cp=min_cp)
 plot(model_prune, branch=0.3, compress=T, margin=0.1)

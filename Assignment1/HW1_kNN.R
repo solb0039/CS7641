@@ -25,7 +25,7 @@ prop.table(table(df$default)) * 100
 
 # Train model by varying # neighbors and predict test data set
 set.seed(400)
-ctrl <- trainControl(method="repeatedcv",repeats = 3)
+ctrl <- trainControl(method="repeatedcv", repeats = 3)
 knnFit <- train(default ~ ., data = train_data, method = "knn", trControl = ctrl, preProcess = c("center","scale"), tuneLength = 20)
 plot(knnFit, main="Accuracy of Income Data to Predict Default vs # Neighbors")
 knnPredict <- predict(knnFit, newdata = test_data )
