@@ -34,8 +34,8 @@ Explore both radial and polynomial kernal functions using `svm` function in R pa
 
 ## Results:
 
-| |Credit Card Dataset| Census Dataset|
-|--|------------------|---------------|
+| |Credit Card Dataset|| Census Dataset||
+|--|----------------|--|-------------|--|
 |Method|  Training Err| Testing Err | Training Err | Testing Err |
 |Decision Tree| 82.10% | 82.40% | 86.94% | 86.06% |
 |Neural Net| 82.18% |82.31%  |85.98% |86.16% |
