@@ -46,6 +46,7 @@ confusionMatrix(test_data$default, pred_test)
 
 
 
+
 # Repeat for census dataset
 income<-read.table("./adult.data.txt", header=F, sep=",")
 income_names<-c("age","workclass","fnlwgt","education","education_num","marital", "occupation",
@@ -80,9 +81,7 @@ text(model_cen_prune, cex=0.7)
 # Confusion matrix
 preds_cen<-predict(model_cen_prune, newdata = income_train, type="class")
 confusionMatrix(income_train$income, preds_cen)
-#86.74%
 
 # Fit test data
 pred_cen_test<-predict(model_cen_prune, newdata = income_test, type="class")
 confusionMatrix(income_test$income, pred_cen_test)
-#85.36%
