@@ -20,7 +20,8 @@ The folder consists of 5 R scripts:
 
 The datafiles used in the analysis are also included in the folder.
 
-Each R script is written to be run independently.  For example, to run the script `HW1_DecisionTrees.R`, type following command into the terminal prompt:
+Each R script is written to be run independently.  For example, to run the script `HW1_DecisionTrees.R`, type 
+the following command into the terminal prompt:
 	> R HW1_DecisionTree.R 
 
 Alternatively, the script can be loaded into an active RStudio session and run by selection 'Run' from the toolbar.
