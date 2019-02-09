@@ -1,3 +1,6 @@
+# CS7641 Assignment 1
+# Support Vector Machines #
+
 library(tidyverse)
 library(readxl)
 library(caret)

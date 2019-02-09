@@ -1,3 +1,6 @@
+# CS7641 Assignment 1
+# k-Nearest Neighbors
+
 library(tidyverse)
 library(readxl)
 library(caret)
@@ -30,6 +33,40 @@ knnFit <- train(default ~ ., data = train_data, method = "knn", trControl = ctrl
 plot(knnFit, main="Accuracy of Income Data to Predict Default vs # Neighbors")
 knnPredict <- predict(knnFit, newdata = test_data )
 confusionMatrix(knnPredict, test_data$default)
+
+
+# Vary training dataset size at fixed number of neighbors (27)
+samp_size<-seq(0.50, 0.99, 0.01)
+results<-matrix(nrow=length(samp_size) ,ncol=3)
+colnames(results)<-c("Train Size", "Train Accuracy", "Test Accuracy")
+
+for (trial in seq(1:length(samp_size))){
+  print(trial)
+  train_rows <- createDataPartition(y = df$default,p = samp_size[trial],list = FALSE)
+  train_data <- df[train_rows,]
+  test_data <- df[-train_rows,]
+  ctrl <- trainControl(method="repeatedcv", repeats = 3)
+  knnFit <- train(default ~ ., data = train_data, method = "knn", trControl = ctrl, preProcess = c("center","scale"), tuneGrid=expand.grid(k=c(27)))
+  results[trial,1]<-samp_size[trial]
+  preds<-predict(knnFit, newdata = train_data)
+  rst<-table(train_data$default, preds)
+  results[trial,2]<-(rst[1]+rst[4])/sum(rst)
+  knnPredict <- predict(knnFit, newdata = test_data )
+  rstt<-table(test_data$default, knnPredict)
+  results[trial,3]<-(rstt[1]+rstt[4])/sum(rstt)
+}
+
+# Plot results of sample size
+results<-as.data.frame(results)
+ggplot(data=results) +
+  geom_point(mapping = aes(x=`Train Size`, y=`Train Accuracy`, col='blue')) +
+  geom_smooth(mapping = aes(x=`Train Size`, y=`Train Accuracy`, col='blue')) +
+  geom_point(mapping = aes(x=`Train Size`, y=`Test Accuracy`, color='red')) +
+  geom_smooth(mapping = aes(x=`Train Size`, y=`Test Accuracy`, color='red')) +
+  labs(title="Accuracy vs. Training Set Size\n", y="Accuracy", color="") +
+  scale_color_manual(labels=c("Train", "Test"), values=c("blue", "red"))
+
+
 
 
 # Repeat k-NN with Census dataset
