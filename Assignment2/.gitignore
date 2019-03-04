@@ -1,0 +1,10 @@
+*.csv
+*.hdf
+*.xls
+*.pyc
+.DS_Store
+venv/
+*.doc
+*.docx
+*.pdf
+*.idea
