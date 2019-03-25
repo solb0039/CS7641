@@ -1,7 +1,8 @@
 import pandas as pd
 import numpy as np
-from adult_data_analysis import run_adult_analysis, run_adult_PCA, run_NN_base, run_adult_ICA, run_adult_RCA
-from credit_data_analysis import run_credit_analysis, run_credit_PCA, run_NN_credit_base, run_credit_ICA, run_credit_RCA
+from collections import defaultdict
+from adult_data_analysis import run_adult_analysis, run_adult_PCA, run_NN_base, run_adult_ICA, run_adult_RCA, run_adult_RF, run_adult_datasets, run_adult_analysis_dim_red, run_adult_NN_dim_red
+from credit_data_analysis import run_credit_analysis, run_credit_PCA, run_NN_credit_base, run_credit_ICA, run_credit_RCA, run_credit_RF, run_credit_datasets, run_credit_analysis_dim_red
 
 # Read data sets
 adult = pd.read_csv('./adult.data.txt', header=None)
@@ -74,21 +75,35 @@ adultX = adult.drop('income', 1).copy().values
 adultY = adult['income'].copy().values #.reshape(-1,1)
 
 # Run k-means and E-M
-#run_adult_analysis(adultX, adultY)   # k-means and E-M
+run_adult_analysis(adultX, adultY)   # k-means and E-M
 
 #PCA
-#run_adult_PCA(adultX, adultY)  # PCA + NN
-#run_NN_base(adultX, adultY)  # Run NN without PCA for comparison
+run_adult_PCA(adultX, adultY)  # PCA + NN
+run_NN_base(adultX, adultY)  # Run NN without PCA for comparison
 
 #ICA
-#run_adult_ICA(adultX, adultY)
+run_adult_ICA(adultX, adultY)
 
 #Random Projections
-#run_adult_RCA(adultX, adultY)
+run_adult_RCA(adultX, adultY)
 
-#Other
+#Random Forest
+run_adult_RF(adultX, adultY)
+
+#Create dimensionally reduced datasets
+dims=defaultdict(dict)
+dims["adult"]["PCA"] = 2
+dims["adult"]["ICA"] = 2
+dims["adult"]["RCA"] = 7
+dims["adult"]["RF"] = 9
+run_adult_datasets(adultX, adultY, dims)
+
+# Run k-means and E-M on dimensionally reduced datasets
+run_adult_analysis_dim_red()   # k-means and E-M
 
 
+# Run NN on dimensionally reduced and original datasets with addition cluster dimension
+run_adult_NN_dim_red()
 
 
 
@@ -117,15 +132,28 @@ creditX = credit.drop('default', 1).copy().values
 creditY = credit['default'].copy().values #.reshape(-1,1)
 
 
-#print(credit.head())
-#print(credit.dtypes)
-#run_credit_analysis(creditX, creditY)
 
-#run_credit_PCA(creditX, creditY)  # PCA + NN
-#run_NN_credit_base(creditX, creditY)  # Run NN without PCA for comparison
+run_credit_analysis(creditX, creditY)
+
+run_credit_PCA(creditX, creditY)  # PCA + NN
+run_NN_credit_base(creditX, creditY)  # Run NN without PCA for comparison
 
 #ICA
-#run_credit_ICA(creditX, creditY)
+run_credit_ICA(creditX, creditY)
 
 #Random Projections
 run_credit_RCA(creditX, creditY)
+
+#Random Forest
+run_credit_RF(creditX, creditY)
+
+#Create dimensionally reduced datasets
+dims["credit"]["PCA"] = 3
+dims["credit"]["ICA"] = 6
+dims["credit"]["RCA"] = 14
+dims["credit"]["RF"] = 9
+run_credit_datasets(creditX, creditY, dims)
+
+
+# Run k-means and E-M on dimensionally reduced datasets
+run_credit_analysis_dim_red()

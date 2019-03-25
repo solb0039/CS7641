@@ -6,5 +6,7 @@
 venv/
 *.doc
 *.docx
+*.docx
 *.pdf
 *.idea
+
