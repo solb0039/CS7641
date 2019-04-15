@@ -41,7 +41,7 @@ ggplot(data=pca_adult_data)+geom_point(mapping=aes(x=param_clf__n_components, y=
   geom_text(aes(0, adult_nnet_ref,label="Reference NNet Model", vjust=-1, hjust=0.10)) +
   labs(x="Number of PCA Components", y="Percent", title="PCA of Adult Dataset\n", color = "") +
   scale_color_manual(labels = c("95% CI", "NNet Test Error", "Tot. Var. Explained"), values = c("red", "green", "blue"))+
-  theme(legend.position="top", plot.title = element_text(hjust = 0.5))
+  theme(legend.position="top", plot.title = element_text(hjust = 0.5), axis.text.y = element_text(size=13), axis.text.x = element_text(size=13))
 
 
 # PLOT OF PCA ON CREDIT DATASET
@@ -79,7 +79,7 @@ ggplot(data=pca_credit_data)+geom_point(mapping=aes(x=param_clf__n_components, y
   geom_text(aes(0, credit_nnet_ref,label="Reference NNet Model", vjust=-1, hjust=0.10)) +
   labs(x="Number of PCA Components", y="Percent", title="PCA of Credit Dataset", color = "") +
   scale_color_manual(labels = c("95% CI", "NNet Test Error", "Tot. Var. Explained"), values = c("red", "green", "blue")) +
-  theme(legend.position="top", plot.title = element_text(hjust = 0.5))
+  theme(legend.position="top", plot.title = element_text(hjust = 0.5), axis.text.y = element_text(size=13), axis.text.x = element_text(size=13))
 
 
 # PCA COMPONENT INTERPRETATION
@@ -116,7 +116,7 @@ p1<-ggplot(data=ica_adult_data)+geom_point(mapping=aes(x=param_clf__n_components
   theme(axis.title.x = element_blank(), axis.text.x = element_blank())+
   labs(y="Percent", title="ICA of Adult Dataset\n", y="Kurtosis")+
   scale_color_manual(labels = c("Kurtosis"), values = c("red"))+
-  theme(legend.position="right", plot.title = element_text(hjust = 0.5))
+  theme(legend.position="right", plot.title = element_text(hjust = 0.5), axis.text.y = element_text(size=13), axis.text.x = element_text(size=13))
 
 p2<-ggplot(data=ica_adult_data)+geom_point(mapping=aes(x=param_clf__n_components, y=mean, color='green'))+
   geom_line(mapping=aes(x=param_clf__n_components, y=mean, color='green')) +
@@ -126,7 +126,7 @@ p2<-ggplot(data=ica_adult_data)+geom_point(mapping=aes(x=param_clf__n_components
   geom_text(aes(0, adult_nnet_ref,label="Reference NNet Model", vjust=1, hjust=0.10)) +
   labs(x="Number of ICA Components", y="Percent") +
   scale_color_manual(labels = c("NNet Test Error","95% CI"), values = c("red", "green", "blue"))+
-  theme(legend.position="right")
+  theme(legend.position="right", axis.text.y = element_text(size=13), axis.text.x = element_text(size=13))
 library(grid)
 grid.newpage()
 grid.draw(rbind(ggplotGrob(p1), ggplotGrob(p2), size = "last"))
@@ -156,7 +156,7 @@ p1<-ggplot(data=ica_credit_data)+geom_point(mapping=aes(x=param_clf__n_component
   theme(axis.title.x = element_blank(), axis.text.x = element_blank())+
   labs(y="Kurtosis", title="ICA of credit Dataset\n", y="Kurtosis")+
   scale_color_manual(labels = c("Kurtosis"), values = c("red"))+
-  theme(legend.position="right", plot.title = element_text(hjust = 0.5))
+  theme(legend.position="right", plot.title = element_text(hjust = 0.5), axis.text.y = element_text(size=13), axis.text.x = element_text(size=13))
 
 p2<-ggplot(data=ica_credit_data)+geom_point(mapping=aes(x=param_clf__n_components, y=mean, color='green'))+
   geom_line(mapping=aes(x=param_clf__n_components, y=mean, color='green')) +
@@ -166,7 +166,7 @@ p2<-ggplot(data=ica_credit_data)+geom_point(mapping=aes(x=param_clf__n_component
   geom_text(aes(0, credit_nnet_ref,label="Reference NNet Model", vjust=1, hjust=0.10)) +
   labs(x="Number of ICA Components", y="Test Error") +
   scale_color_manual(labels = c("95% CI", "NNet Test Error"), values = c("red", "green", "blue"))+
-  theme(legend.position="right")
+  theme(legend.position="right", axis.text.y = element_text(size=13), axis.text.x = element_text(size=13))
 
 library(grid)
 grid.newpage()
@@ -202,7 +202,7 @@ ggplot(data=rca_adult_data)+geom_point(mapping=aes(x=param_clf__n_components, y=
   geom_text(aes(0, credit_nnet_ref,label="Reference NNet Model", vjust=-1, hjust=0.10)) +
   labs(x="Number of RCA Components", y="Percent", title="RCA of Adult Dataset", color = "") +
   scale_color_manual(labels = c("95% CI", "NNet Test Error", "Pairwise Corr."), values = c("red", "green", "blue")) +
-  theme(legend.position="top", plot.title = element_text(hjust = 0.5))
+  theme(legend.position="top", plot.title = element_text(hjust = 0.5), axis.text.y = element_text(size=13), axis.text.x = element_text(size=13))
 
 
 
@@ -235,7 +235,7 @@ ggplot(data=rca_credit_data)+geom_point(mapping=aes(x=param_clf__n_components, y
   geom_text(aes(0, credit_nnet_ref,label="Reference NNet Model", vjust=-1, hjust=0.10)) +
   labs(x="Number of RCA Components", y="Percent", title="RCA of Credit Dataset", color = "") +
   scale_color_manual(labels = c("95% CI", "NNet Test Error", "Pairwise Corr."), values = c("red", "green", "blue")) +
-  theme(legend.position="top", plot.title = element_text(hjust = 0.5))
+  theme(legend.position="top", plot.title = element_text(hjust = 0.5), axis.text.y = element_text(size=13), axis.text.x = element_text(size=13))
 
 
 # PLOT OF RANDOM FOREST ON ADULT DATASET
@@ -243,7 +243,8 @@ ggplot(data=rca_credit_data)+geom_point(mapping=aes(x=param_clf__n_components, y
 rf_adult<-readr::read_csv("./P2_Dimensionality_Reduction/Adult_RF_feature_importance.csv", col_names=FALSE)
 colnames(rf_adult)<-c("No. Features", "Importance", "Sum_Importance")
 rf_adult_nnet<-readr::read_csv("./P4_Neural_Networks_Reduced/Adult_RF_nn_results.csv", col_names=TRUE)
-
+adult_nnet_ref<-max(adult_nnet_base$mean_test_score)
+  
 a<-rf_adult_nnet%>%group_by(param_filter__n)
 b<-a%>%summarise(
   mean=mean(mean_test_score),
@@ -266,11 +267,11 @@ ggplot(data=rf_adult_data)+geom_point(mapping=aes(x=param_filter__n, y=Sum_Impor
   geom_line(mapping=aes(x=param_filter__n, y=mean, color='green')) +
   geom_point(mapping=aes(x=param_filter__n, y=ci_plus, color='blue'))+
   geom_point(mapping=aes(x=param_filter__n, y=ci_minus, color='blue')) +
-  geom_hline(aes(yintercept=credit_nnet_ref))+
-  geom_text(aes(0, credit_nnet_ref,label="Reference NNet Model", vjust=-1, hjust=0.10)) +
+  geom_hline(aes(yintercept=adult_nnet_ref))+
+  geom_text(aes(0, adult_nnet_ref,label="Reference NNet Model", vjust=-1, hjust=0.10)) +
   labs(x="Number of Components", y="Percent", title="Random Forest of Adult Dataset", color = "") +
   scale_color_manual(labels = c("95% CI", "NNet Test Error", "Importance", "Sum Importance"), values = c("red", "green", "pink", "blue")) +
-  theme(legend.position="top", plot.title = element_text(hjust = 0.5))
+  theme(legend.position="top", plot.title = element_text(hjust = 0.5), axis.text.y = element_text(size=13), axis.text.x = element_text(size=13))
 
 
 
@@ -306,7 +307,7 @@ ggplot(data=rf_credit_data)+geom_point(mapping=aes(x=param_filter__n, y=Sum_Impo
   geom_text(aes(0, credit_nnet_ref,label="Reference NNet Model", vjust=-1, hjust=0.10)) +
   labs(x="Number of Components", y="Percent", title="Random Forest of Credit Dataset", color = "") +
   scale_color_manual(labels = c("95% CI", "NNet Test Error", "Importance", "Sum Importance"), values = c("red", "green", "pink", "blue")) +
-  theme(legend.position="top", plot.title = element_text(hjust = 0.5))
+  theme(legend.position="top", plot.title = element_text(hjust = 0.5), axis.text.y = element_text(size=13), axis.text.x = element_text(size=13))
 
 
 # Transpose datasets
@@ -774,7 +775,7 @@ ggplot(data=pca_b)+geom_point(mapping=aes(x=param_clf__n_components, y=mean_pca,
   geom_text(aes(0, adult_nnet_ref,label="Reference NNet Model", vjust=-1, hjust=0.10)) +
   labs(x="Number of Components", y="Test Error", title="Comparison of NNets with Adult Dataset\n", color = "")+
   scale_color_manual(labels = c("95%CI", "ICA", "PCA", "RF", "RCA"), values = c("blue", "red", "green", "yellow", "orange"))+
-  theme(legend.position="top", plot.title = element_text(hjust = 0.5))
+  theme(legend.position="top", plot.title = element_text(hjust = 0.5), axis.text.y = element_text(size=13), axis.text.x = element_text(size=13))
 
 
 # COMP. NNET WITHOUT CLUSTER FEATURES FOR CREDIT
@@ -851,7 +852,7 @@ ggplot(data=pca_b)+geom_point(mapping=aes(x=param_clf__n_components, y=mean_pca,
   geom_text(aes(0, credit_nnet_ref,label="Reference NNet Model", vjust=-1, hjust=0.10)) +
   labs(x="Number of Components", y="Test Error", title="Comparison of NNets with credit Dataset\n", color = "")+
   scale_color_manual(labels = c("95%CI", "ICA", "RF", "PCA", "RCA"), values = c("blue", "red", "green", "yellow", "orange"))+
-  theme(legend.position="top", plot.title = element_text(hjust = 0.5))
+  theme(legend.position="top", plot.title = element_text(hjust = 0.5), axis.text.y = element_text(size=13), axis.text.x = element_text(size=13))
 
 
 # COMP. NNET WITH K-MEANS CLUSTERS ADDED FOR ADULT
@@ -910,18 +911,19 @@ rf_kmclust_b$ci_minus<-rf_kmclust_b$mean-(rf_kmclust_b$sd/sqrt(rf_kmclust_b$n))*
 
 
 
-ggplot()+geom_point(data=pca_kmclust_b, aes(x=param_addClustKM__n_clusters, y=max_pca), color="red")+
-  geom_line(data=pca_kmclust_b, aes(x=param_addClustKM__n_clusters, y=max_pca), color="red") +
-  geom_point(data=ica_kmclust_b, aes(x=param_addClustKM__n_clusters, y=max_ica), color="blue")+
-  geom_line(data=ica_kmclust_b, aes(x=param_addClustKM__n_clusters, y=max_ica), color="blue")+
-  geom_point(data=rp_kmclust_b, aes(x=param_addClustKM__n_clusters, y=max_rp), color="green")+
-  geom_line(data=rp_kmclust_b, aes(x=param_addClustKM__n_clusters, y=max_rp), color="green")+
-  geom_point(data=rf_kmclust_b, aes(x=param_addClustKM__n_clusters, y=max_rf), color="orange")+
-  geom_line(data=rf_kmclust_b, aes(x=param_addClustKM__n_clusters, y=max_rf), color="orange")+
-  labs(x="Number of Components", y="Test Error", title="NNet Fit w/ Kmeans Clusters on Adult Dataset\n")+
-  scale__manual(labels = c("PCA","ICA", "RCA","RF"), values = c("red", "blue", "green", "orange"))+
-  theme(legend.position="right", plot.title = element_text(hjust = 0.5))
+ggplot()+geom_point(data=pca_kmclust_b, mapping=aes(x=param_addClustKM__n_clusters, y=max_pca, color="red"))+
+  geom_line(data=pca_kmclust_b, mapping=aes(x=param_addClustKM__n_clusters, y=max_pca, color="red")) +
+  geom_point(data=ica_kmclust_b,mapping= aes(x=param_addClustKM__n_clusters, y=max_ica, color="blue"))+
+  geom_line(data=ica_kmclust_b, mapping=aes(x=param_addClustKM__n_clusters, y=max_ica, color="blue"))+
+  geom_point(data=rp_kmclust_b, mapping=aes(x=param_addClustKM__n_clusters, y=max_rp, color="green"))+
+  geom_line(data=rp_kmclust_b, mapping=aes(x=param_addClustKM__n_clusters, y=max_rp, color="green"))+
+  geom_point(data=rf_kmclust_b, mapping=aes(x=param_addClustKM__n_clusters, y=max_rf, color="orange"))+
+  geom_line(data=rf_kmclust_b, mapping=aes(x=param_addClustKM__n_clusters, y=max_rf, color="orange")) +
+  scale_color_manual("Dim Red", labels = c("ICA","RCA", "RF","PCA"), values = c("red", "blue", "green", "orange"))+
+  theme(legend.position="top", plot.title = element_text(hjust = 0.5), axis.text.y = element_text(size=13), axis.text.x = element_text(size=13))+
+  labs(x="Number of Components", y="Test Error", title="NNet Fit w/ Kmeans Clusters on Adult Dataset\n")
   
+
 
 
 
@@ -933,10 +935,73 @@ adult_nnet_gmm_cluster_rp<-readr::read_csv("./P5_Neural_Networks_Reduced_With_Cl
 adult_nnet_gmm_cluster_rf<-readr::read_csv("./P5_Neural_Networks_Reduced_With_Clusters/adult_gmm_RF.csv", col_names=TRUE)
 
 
+pca_gmmclust<-adult_nnet_gmm_cluster_pca%>%group_by(param_addClustGMM__n_clusters)
+pca_gmmclust_b<-pca_gmmclust%>%summarise(
+  mean_pca=mean(mean_test_score),
+  max_pca=max(mean_test_score),
+  var_pca=var(mean_test_score),
+  sd_pca=sd(mean_test_score)
+)
+pca_gmmclust_b<-cbind(pca_gmmclust_b, tally(pca_gmmclust)[2])
+pca_gmmclust_b$ci_plus<-pca_gmmclust_b$mean+(pca_gmmclust_b$sd/sqrt(pca_gmmclust_b$n))*1.96
+pca_gmmclust_b$ci_minus<-pca_gmmclust_b$mean-(pca_gmmclust_b$sd/sqrt(pca_gmmclust_b$n))*1.96
+
+
+ica_gmmclust<-adult_nnet_gmm_cluster_ica%>%group_by(param_addClustGMM__n_clusters)
+ica_gmmclust_b<-ica_gmmclust%>%summarise(
+  mean_ica=mean(mean_test_score),
+  max_ica=max(mean_test_score),
+  var_ica=var(mean_test_score),
+  sd_ica=sd(mean_test_score)
+)
+ica_gmmclust_b<-cbind(ica_gmmclust_b, tally(ica_gmmclust)[2])
+ica_gmmclust_b$ci_plus<-ica_gmmclust_b$mean+(ica_gmmclust_b$sd/sqrt(ica_gmmclust_b$n))*1.96
+ica_gmmclust_b$ci_minus<-ica_gmmclust_b$mean-(ica_gmmclust_b$sd/sqrt(ica_gmmclust_b$n))*1.96
+
+
+
+rp_gmmclust<-adult_nnet_gmm_cluster_rp%>%group_by(param_addClustGMM__n_clusters)
+rp_gmmclust_b<-rp_gmmclust%>%summarise(
+  mean_rp=mean(mean_test_score),
+  max_rp=max(mean_test_score),
+  var_rp=var(mean_test_score),
+  sd_rp=sd(mean_test_score)
+)
+rp_gmmclust_b<-cbind(rp_gmmclust_b, tally(rp_gmmclust)[2])
+rp_gmmclust_b$ci_plus<-rp_gmmclust_b$mean+(rp_gmmclust_b$sd/sqrt(rp_gmmclust_b$n))*1.96
+rp_gmmclust_b$ci_minus<-rp_gmmclust_b$mean-(rp_gmmclust_b$sd/sqrt(rp_gmmclust_b$n))*1.96
+
+
+rf_gmmclust<-adult_nnet_gmm_cluster_rf%>%group_by(param_addClustGMM__n_clusters)
+rf_gmmclust_b<-rf_gmmclust%>%summarise(
+  mean_rf=mean(mean_test_score),
+  max_rf=max(mean_test_score),
+  var_rf=var(mean_test_score),
+  sd_rf=sd(mean_test_score)
+)
+rf_gmmclust_b<-cbind(rf_gmmclust_b, tally(rf_gmmclust)[2])
+rf_gmmclust_b$ci_plus<-rf_gmmclust_b$mean+(rf_gmmclust_b$sd/sqrt(rf_gmmclust_b$n))*1.96
+rf_gmmclust_b$ci_minus<-rf_gmmclust_b$mean-(rf_gmmclust_b$sd/sqrt(rf_gmmclust_b$n))*1.96
+
+
+ggplot()+geom_point(data=pca_gmmclust_b, mapping=aes(x=param_addClustGMM__n_clusters, y=max_pca, color="red"))+
+  geom_line(data=pca_gmmclust_b, mapping=aes(x=param_addClustGMM__n_clusters, y=max_pca, color="red")) +
+  geom_point(data=ica_gmmclust_b,mapping= aes(x=param_addClustGMM__n_clusters, y=max_ica, color="blue"))+
+  geom_line(data=ica_gmmclust_b, mapping=aes(x=param_addClustGMM__n_clusters, y=max_ica, color="blue"))+
+  geom_point(data=rp_gmmclust_b, mapping=aes(x=param_addClustGMM__n_clusters, y=max_rp, color="green"))+
+  geom_line(data=rp_gmmclust_b, mapping=aes(x=param_addClustGMM__n_clusters, y=max_rp, color="green"))+
+  geom_point(data=rf_gmmclust_b, mapping=aes(x=param_addClustGMM__n_clusters, y=max_rf, color="orange"))+
+  geom_line(data=rf_gmmclust_b, mapping=aes(x=param_addClustGMM__n_clusters, y=max_rf, color="orange")) +
+  scale_color_manual("Dim Red", labels = c("ICA","RCA", "RF","PCA"), values = c("red", "blue", "green", "orange"))+
+  theme(legend.position="top", plot.title = element_text(hjust = 0.5), axis.text.y = element_text(size=13), axis.text.x = element_text(size=13))+
+  labs(x="Number of Components", y="Test Error", title="NNet Fit w/ EM Clusters on Adult Dataset\n")
 
 
 
 
 
 
-bp_gather<-backprop_test_data%>%gather('test acc', 'train acc', key="types", value="error")
+
+
+
+

@@ -8,7 +8,7 @@ import csv
 import time
 import sys
 
-sys.path.append("/Users/Sean/PycharmProjects/CS7641_HW2/ABAGAIL/ABAGAIL.jar")
+sys.path.append("/Users/Sean/School/GeorgiaTech/CS7641/Assignment2/ABAGAIL/ABAGAIL.jar")
 from func.nn.backprop import BackPropagationNetworkFactory
 from shared import SumOfSquaresError, DataSet, Instance
 from opt.example import NeuralNetworkOptimizationProblem
@@ -27,7 +27,7 @@ TRIALS = 5
 ERROR_SAMPLE_INTERVAL = 100
 HALT_COUNT_MAX = 5000
 HALT_COUNT_THRESHOLD = .000001
-OUTFILE = '/Users/Sean/PycharmProjects/CS7641_HW2/NN_OUTPUT/XXX_LOG_56.txt'
+OUTFILE = '/Users/Sean/School/GeorgiaTech/CS7641/Assignment2/NN_OUTPUT/XXX_LOG_56.txt'
 
 
 def initialize_instances(infile):
@@ -116,9 +116,9 @@ def train(oa, network, oaName, training_ints, validation_ints, testing_ints, mea
 
 def main(P, mate, mutate):
     """Run this experiment"""
-    training_ints = initialize_instances('/Users/Sean/PycharmProjects/CS7641_HW2/s_trg.csv')
-    testing_ints = initialize_instances('/Users/Sean/PycharmProjects/CS7641_HW2/s_test.csv')
-    validation_ints = initialize_instances('/Users/Sean/PycharmProjects/CS7641_HW2/s_val.csv')
+    training_ints = initialize_instances('/Users/Sean/School/GeorgiaTech/CS7641/Assignment2/s_trg.csv')
+    testing_ints = initialize_instances('/Users/Sean/School/GeorgiaTech/CS7641/Assignment2/s_test.csv')
+    validation_ints = initialize_instances('/Users/Sean/School/GeorgiaTech/CS7641/Assignment2/s_val.csv')
     factory = BackPropagationNetworkFactory()
     measure = SumOfSquaresError()
     data_set = DataSet(training_ints)
