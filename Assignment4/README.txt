@@ -5,7 +5,9 @@ April-14-2019
 Entire code is located in public GitHub repo: 
 https://github.com/solb0039/CS7641/tree/master/Assignment4
 
-Important files are:
+Prior to using, create a Python3.7 Virtual Environment and load necessary packages using $ pip install -r requirements.txt
+
+Important code files are:
 easyGW.py : Run this file for easy grid world
 hardGW.py : Run this file for hard grid world
 
