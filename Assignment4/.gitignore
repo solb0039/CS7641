@@ -4,3 +4,6 @@ BURLAP/
 *.png
 venv/
 *.idea
+*.doc
+*.pdf
+
